@@ -1,0 +1,86 @@
+@use "../abstracts/variables.scss" as *;
+@use "../abstracts/mixins.scss" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  background: $background;
+  color: $text;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 115px;
+  margin: 0 auto;
+
+  @include max-width("laptop") {
+    padding: 0 72px;
+  }
+
+  @include max-width("tablet") {
+    padding-inline: 40px;
+  }
+
+  @include max-width("mobile") {
+    padding-inline: 30px;
+  }
+}
