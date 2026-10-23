@@ -1,0 +1,61 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 20px 0;
+
+  @include max-width("laptop") {
+    padding: 15px 0;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 50px;
+    margin: 0 auto;
+
+    @include max-width("mobile") {
+      padding-inline: 30px;
+    }
+  }
+
+  &__navMenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__iconLogo {
+    @include max-width("laptop") {
+      width: 183px;
+      height: 24px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__navLink {
+    padding: 12px 20px;
+    font-family: $second-family;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__signUpLink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: $second-family;
+    font-weight: 600;
+    text-align: center;
+    padding: 19px 30px;
+    border-radius: 20px;
+    background: $call-to-action;
+  }
+}

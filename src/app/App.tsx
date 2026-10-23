@@ -1,9 +1,14 @@
+import { Suspense } from "react";
+import { AppProviders } from "./providers/AppProviders";
+import { RouterProvider } from "react-router";
+import router from "./router/router";
+
 export default function App() {
   return (
-    <div>
-      <div className="container">
-        <p>Hello World</p>
-      </div>
-    </div>
+    <AppProviders>
+      <Suspense fallback={<div>Загрузка страницы...</div>}>
+        <RouterProvider router={router} />
+      </Suspense>
+    </AppProviders>
   );
 }

@@ -57,11 +57,8 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
-  min-height: 100vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  display: flex;
-  flex-direction: column;
   background: $background;
   color: $text;
 }
