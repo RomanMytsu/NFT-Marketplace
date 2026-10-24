@@ -1,0 +1,94 @@
+.mobileMenu {
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    background: rgb(0 0 0 / 68%);
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    width: clamp(320px, 100vw, 480px);
+    max-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 24px 24px calc(24px + env(safe-area-inset-bottom, 0px));
+    background: $background;
+    box-shadow: -16px 0 40px rgb(0 0 0 / 28%);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 32px;
+  }
+
+  &__logoLink {
+    display: inline-flex;
+    min-width: 0;
+  }
+
+  &__logo {
+    width: 183px;
+    height: 24px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  &__closeButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    color: $text;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__navLink {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 14px 12px;
+    border-radius: 12px;
+    font-family: $second-family;
+    font-weight: 600;
+  }
+
+  &__signUpLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 56px;
+    margin-top: 16px;
+    padding: 16px 24px;
+    border-radius: 20px;
+    background: $call-to-action;
+    font-family: $second-family;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobileMenu__backdrop,
+  .mobileMenu__panel {
+    transition-duration: 0.01ms;
+  }
+}
