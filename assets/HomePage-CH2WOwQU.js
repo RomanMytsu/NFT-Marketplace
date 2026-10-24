@@ -1,1 +1,0 @@
-import{t as e}from"./index-C9o3YZwc.js";var t={home__hero:`_home__hero_1h06b_1`},n=e(),r=()=>(0,n.jsx)(`section`,{className:t.home__hero,children:(0,n.jsxs)(`h1`,{className:t.home__title,children:[`Explore the world of`,(0,n.jsx)(`span`,{children:` unique NFTs`})]})});export{r as default};
