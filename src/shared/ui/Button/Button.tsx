@@ -25,50 +25,67 @@ type NavigationButtonProps = BaseProps &
 
 export type ButtonProps = NativeButtonProps | NavigationButtonProps;
 
+type ButtonContentProps = Pick<BaseProps, "icon" | "children">;
+
+function ButtonContent({ icon, children }: ButtonContentProps) {
+  return (
+    <>
+      {icon}
+      <span>{children}</span>
+    </>
+  );
+}
+
+function getButtonClassName(
+  size: ButtonSize,
+  variant: ButtonVariant,
+  className: string,
+): string {
+  return [s.button, s[`button--${size}`], s[`button--${variant}`], className]
+    .filter(Boolean)
+    .join(" ");
+}
+
 export const Button = (props: ButtonProps) => {
+  if ("to" in props && props.to !== undefined) {
+    const {
+      to,
+      size = "primary",
+      variant = "filled",
+      icon,
+      children,
+      className = "",
+      ...linkProps
+    } = props;
+
+    return (
+      <Link
+        {...linkProps}
+        to={to}
+        className={getButtonClassName(size, variant, className)}
+      >
+        <ButtonContent icon={icon}>{children}</ButtonContent>
+      </Link>
+    );
+  }
+
   const {
     size = "primary",
     variant = "filled",
     icon,
     children,
     className = "",
+    type,
+    ...buttonProps
   } = props;
-
-  const combinedClasses = [
-    s.button,
-    s[`button--${size}`],
-    s[`button--${variant}`],
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  const content = (
-    <>
-      {icon && <span className={s.button__icon}>{icon}</span>}
-      <span>{children}</span>
-    </>
-  );
-
-  if ("to" in props && props.to !== undefined) {
-    const { to, ...linkProps } = props;
-
-    return (
-      <Link {...linkProps} to={to} className={combinedClasses}>
-        {content}
-      </Link>
-    );
-  }
-
-  const buttonProps = props;
 
   return (
     <button
       {...buttonProps}
-      type={props.type ?? "button"}
-      className={combinedClasses}
+      type={type ?? "button"}
+      className={getButtonClassName(size, variant, className)}
     >
-      {content}
+      <ButtonContent icon={icon}>{children}</ButtonContent>
     </button>
   );
 };

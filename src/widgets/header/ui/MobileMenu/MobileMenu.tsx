@@ -5,6 +5,7 @@ import { AnimatePresence, motion, type Variants } from "motion/react";
 import { X } from "lucide-react";
 import Logo from "@/shared/assets/icons/logo.svg";
 import { Icon } from "@/shared/ui/Icon/Icon";
+import { Button } from "@/shared/ui/Button/Button";
 import s from "./MobileMenu.module.scss";
 
 type NavigationLink = {
@@ -136,14 +137,16 @@ function MobileMenuLayer({ onClose, links }: Omit<MobileMenuProps, "isOpen">) {
               {label}
             </Link>
           ))}
-          <Link
+          <Button
             to="/sign-up"
-            className={s.mobileMenu__signUpLink}
+            size="secondary"
+            variant="filled"
+            className={s.mobileMenu__signUpButton}
+            icon={<Icon name="user" width={20} height={20} />}
             onClick={onClose}
           >
-            <Icon name="user" width={20} height={20} />
-            <span>Sign Up</span>
-          </Link>
+            Sign Up
+          </Button>
         </nav>
       </motion.div>
     </motion.div>

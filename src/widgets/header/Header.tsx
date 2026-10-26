@@ -4,6 +4,7 @@ import Logo from "@/shared/assets/icons/logo.svg";
 import { useCallback, useEffect, useState } from "react";
 import { MobileMenu } from "./ui/MobileMenu/MobileMenu";
 import { NAVIGATION_LINKS } from "./model/navigationLinks";
+import { Button } from "@/shared/ui/Button/Button";
 import s from "./Header.module.scss";
 
 const Header = () => {
@@ -46,15 +47,15 @@ const Header = () => {
                   {label}
                 </Link>
               ))}
-              <Link to="sign-up" className={s.header__signUpLink}>
-                <Icon
-                  name="user"
-                  width={20}
-                  height={20}
-                  className={s.header__icon}
-                />
-                <span>Sign Up</span>
-              </Link>
+              <Button
+                to="/sign-up"
+                size="secondary"
+                variant="filled"
+                className={s.header__signUpButton}
+                icon={<Icon name="user" width={20} height={20} />}
+              >
+                Sign Up
+              </Button>
             </nav>
             <button
               type="button"

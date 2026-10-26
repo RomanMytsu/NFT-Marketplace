@@ -70,19 +70,9 @@
     font-weight: 600;
   }
 
-  &__signUpLink {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    min-height: 56px;
-    margin-top: 16px;
-    padding: 16px 24px;
-    border-radius: 20px;
-    background: $call-to-action;
-    font-family: $second-family;
-    font-weight: 600;
-    text-align: center;
+  &__nav &__signUpButton {
+    max-width: 152px;
+    height: 46px;
   }
 }
 
