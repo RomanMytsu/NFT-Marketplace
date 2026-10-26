@@ -5,6 +5,7 @@ export const spritemapUrl = "/spritemap.svg";
 export const iconNames = [
   "burger-menu",
   "logo",
+  "rocket",
   "user",
 ] as const;
 

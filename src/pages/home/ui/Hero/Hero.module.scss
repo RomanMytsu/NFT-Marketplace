@@ -1,0 +1,153 @@
+.hero {
+  padding: 180px 0 80px;
+
+  @include max-width("laptop") {
+    padding: 134px 0 80px;
+  }
+  @include max-width("mobile") {
+    padding: 94px 0 40px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "title card"
+      "description card"
+      "button card"
+      "stats card";
+    column-gap: 30px;
+
+    @include max-width("mobile") {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        "title"
+        "description"
+        "card"
+        "button"
+        "stats";
+    }
+  }
+
+  &__title {
+    grid-area: title;
+    font-family: $second-family;
+    font-weight: 600;
+    font-size: 67px;
+    line-height: 1.1;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+
+    @include max-width("laptop") {
+      font-size: 38px;
+      line-height: 1.2;
+    }
+
+    @include max-width("mobile") {
+      font-size: 28px;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__description {
+    grid-area: description;
+    font-family: $second-family;
+    font-size: 22px;
+    line-height: 1.6;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+
+    @include max-width("laptop") {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    @include max-width("mobile") {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__container &__button {
+    grid-area: button;
+    max-width: 224px;
+    margin-bottom: 30px;
+
+    @include max-width("laptop") {
+      margin-bottom: 20px;
+    }
+
+    @include max-width("mobile") {
+      max-width: 315px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__statsList {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+  }
+
+  &__statItem {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__statValue {
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: capitalize;
+
+    @include max-width("laptop") {
+      font-size: 22px;
+      line-height: 1.6;
+    }
+  }
+
+  &__statLabel {
+    font-family: $second-family;
+    font-size: 23px;
+    line-height: 1.6;
+    text-transform: capitalize;
+
+    @include max-width("laptop") {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+  }
+
+  &__nftCard {
+    grid-area: card;
+
+    @include max-width("mobile") {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__nftInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 22px 20px;
+    border-radius: 0 0 20px 20px;
+    background: $background---secondary;
+  }
+
+  &__nftTitle {
+    font-family: $second-family;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    text-transform: capitalize;
+  }
+
+  &__creator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: $second-family;
+  }
+}

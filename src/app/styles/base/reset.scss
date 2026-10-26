@@ -74,10 +74,10 @@ body {
   }
 
   @include max-width("tablet") {
-    padding-inline: 40px;
+    padding: 0 40px;
   }
 
   @include max-width("mobile") {
-    padding-inline: 30px;
+    padding: 0 30px;
   }
 }
